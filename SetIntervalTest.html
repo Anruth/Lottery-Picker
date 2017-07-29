@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+	
+<!-- --------------------------------------------- -->			
+<!-- --------------- Document Block -------------- -->
+<!-- --------------------------------------------- -->
+		<!-- 	 Version: 
+ 				 Date:
+		-->
+<!-- --------------------------------------------- -->			
+<!-- --------------- End Document Block ---------- -->
+<!-- --------------------------------------------- -->
+
+	<title>Set Interval Test</title>
+	
+<!-- --------------------------------------------- -->			
+<!-- --------------- Includes Block -------------- -->
+<!-- --------------------------------------------- -->
+
+
+<!-- --------------------------------------------- -->			
+<!-- --------------- End Includes Block ---------- -->
+<!-- --------------------------------------------- -->
+
+	<style>
+		body {
+			width: 960px
+		}
+		.container {
+			padding-left: 30px;
+		}
+
+	</style>
+
+	<script>
+	
+/* ------------------------------------------------- */
+/* ------------------Variable List------------------ */
+/* ------------------------------------------------- */
+		var Counter = 0
+		var varMix2Flag = 0
+/* ------------------------------------------------- */
+/* ------------------End Variable List-------------- */
+/* ------------------------------------------------- */	
+	
+/* ------------------------------------------------- */
+/* ------------------Function List------------------ */
+/* ------------------------------------------------- */
+
+	function startMainLoop(){
+			intSet = setInterval(mainLoop, 100);
+	}
+	
+	function mainLoop(){
+			var randNum1 = Math.floor(Math.random() * (10));
+			var randNum2 = Math.floor(Math.random() * (10));
+			
+			document.getElementById("counterOutput1").innerHTML = randNum1;
+			document.getElementById("counterOutput2").innerHTML = randNum2;
+			document.getElementById("Pick2FlagValue").innerHTML = varMix2Flag;
+				
+			if (varMix2Flag == 1){			
+				document.getElementById("pick2Output1").innerHTML = randNum1;
+				document.getElementById("pick2Output2").innerHTML = randNum2;
+			}
+			
+			if (varMix2Flag == 2){					
+				document.getElementById("pick2Output1").innerHTML = randNum1;
+				document.getElementById("pick2Output2").innerHTML = randNum2;
+				varMix2Flag = 0
+			}
+				
+	}
+
+/* ------------------------------------------------- */
+/* ------------------End Function List-------------- */
+/* ------------------------------------------------- */
+
+
+	</script>
+</head>
+<body onload="startMainLoop()">
+	<div class= "container">
+		<p>Set Interval Test</p>
+		<p id="counterOutput1">0</p>
+		<p id="counterOutput2">0</p>
+		<button onclick="varMix2Flag = 1">Mix</button>
+		<button onclick="varMix2Flag = 2">Draw</button>
+		<p>Pick 2 Balls</p>
+		<p id="Pick2FlagValue">-</p>		
+		<p id="pick2Output1">0</p>	
+		<p id="pick2Output2">0</p>
+	</div>
+</body>
+</html>
